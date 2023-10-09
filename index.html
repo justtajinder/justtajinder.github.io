@@ -1,101 +1,178 @@
-<STYLE>
-// general
+<style>
+
 
 body {
-	font-family: 'PT Sans Caption',"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	font-size: 3vh;
-}
-
-// header
-
-#header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-#logo {
-  text-decoration: none;
-  color: white;
-  font-size: 5vh;
-  font-weight: bold;
-}
-	
-#menu-icon {
-  font-family: Geneva, sans-serif;
-  font-size: 6vh;
-}
-	
-// hero
-
-.hero {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 100vh;
-	padding: 1em;
-	box-sizing: border-box;
-	color: white;
-	background: url(https://images.unsplash.com/photo-1500417148159-68083bd7333a) center center no-repeat;
-	background-size: cover;
-}
-
-.hero-title {
-	max-width: 16em;
 	margin: 0;
-	font-size: 12vh;
-	font-weight: bold;
-	line-height: .9;
-}
-	
-	@media only screen and (min-width: 32em) { .hero-title { font-size: 16vh; } }	
-
-.hero-footer {
-	display: flex;
-	margin-bottom: 1em;
+	padding: 0;
+    font-family: sans-serif;
 }
 
-.button {
-	padding: .5em .67em;
-	color: white;
-	text-decoration: none;
-	border: .1em solid white;
+a {text-decoration: none;}
 
+.container {
+	margin: auto;
+	width: 1000px;
 }
+
+ul {
+	padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+	list-style: none;
+}
+
+nav {
+	background: #0ca0d6;
+	font-size: 0;
+	position: relative;
+    
+}
+
+nav > ul > li {
+	display: inline-block;
+  	font-size: 14px;
+  	padding: 0 15px;
+  	position: relative;
+}
+
+nav > ul > li > a {
+	color: #fff;
+  	display: block;
+  	padding: 20px 0;
+  	border-bottom: 3px solid transparent;
+    transition: all .3s ease;
+}
+nav > ul > li:hover > a {
+	color: #444; 
+  	border-bottom: 3px solid #444;
+}
+
+.mega-menu {
+	background: #eee;
+  	visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+  	position: absolute;
+  	left: 0;
+  	width: 100%;
+    padding-bottom: 20px;
+}
+.mega-menu h3 {color: #444;}
+
+.mega-menu .container {
+    display: flex;
+}
+.mega-menu .item {
+	flex-grow: 1;
+    margin: 0 10px;
+}
+.mega-menu .item img {
+    width: 100%;
+}
+.mega-menu a {
+	border-bottom: 1px solid #ddd;
+  	color: #4ea3d8;
+  	display: block;
+  	padding: 10px 0;
+}
+.mega-menu a:hover {color: #2d6a91;}
+
+
+.dropdown {position: static;}
+
+.dropdown:hover .mega-menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+
+
 	
-	.button-primary {
-		color: black;
-		background-color: white;
-	}
-	
-// article
-
-article {
-	max-width: 36em;
-	margin: 0 auto;
-	padding: 1em;
-}	
+</style>
 
 
+<nav>
+  <ul class="container">
+    <li><a href='#'>Home</a></li>
+    <li class='dropdown'>
+      <a href='#'>Pages <i class="fa fa-angle-down"></i></a>
+      <div class='mega-menu'>
+      	<div class="container">
+          <div class="item">
+              <h3>Home Page</h3>
+              <ul>
+                <li><a href='#'>Home Page No #1</a></li>
+                <li><a href='#'>Home Page No #2</a></li>
+                <li><a href='#'>Home Page No #3</a></li>
+                <li><a href='#'>Home Page No #4</a></li>
 
-</STYLE><section class="hero">
-  <header id="header">
-    <a id="logo" href="#">logo</a>
-    <nav>
-      <a id="menu-icon">&#8801;</a>
-    </nav>
-  </header>
-  <header class="hero-header">
-    <h1 class="hero-title">The title of this hero module</h1>
-  </header>
-  <footer class="hero-footer">
-    <a class="button button-primary" href="#">button one</a>
-    <a class="button" href="#">button two</a>
-  </footer>
-</section>
-<article>
-  <h2>Some additional content</h2>
-  <p>The rest of the page content continues below the hero. You can use the hero at the top of your page, e.g. the home page. A hero is great to display a high quality picture together with tasty title.</p>
-  <p>Ad donec tincidunt torquent ultricies convallis sodales faucibus magna, fringilla lorem blandit sollicitudin donec faucibus curae orci molestie, et proin curae aliquet venenatis ligula amet vivamus orci varius arcu.</p>
-  <p>Laoreet fusce condimentum venenatis quisque imperdiet ornare cras faucibus convallis, pharetra habitasse elementum ut bibendum per sociosqu phasellus etiam, velit faucibus integer torquent leo elementum maecenas netus.</p>
-</article>
+              </ul>
+          </div> <!-- /.item -->
+          <div class="item">
+              <h3>Contact</h3>
+              <ul>
+                <li><a href='#'>Contact Page No #1</a></li>
+                <li><a href='#'>Contact Page No #2</a></li>
+                <li><a href='#'>Contact Page No #3</a></li>
+                <li><a href='#'>Contact Page No #4</a></li>
+                <li><a href='#'>Contact Page No #5</a></li>
+              </ul>
+          </div> <!-- /.item -->
+          <div class="item">
+              <h3>Portfolio</h3>
+              <ul>
+                <li><a href='#'>Portfolio Page No #1</a></li>
+                <li><a href='#'>Portfolio Page No #2</a></li>
+                <li><a href='#'>Portfolio Page No #3</a></li>
+              </ul>
+          </div> <!-- /.item --> 
+          <div class="item">
+             <h3>Custom</h3>
+             <img src="http://placehold.it/250x200">
+          </div> <!-- /.item -->
+        </div><!-- /.container -->
+      </div><!-- /.mega-menu -->
+    </li><!-- /.dropdown -->
+    <li class='dropdown'>
+      <a href='#'>Images <i class="fa fa-angle-down"></i> </a>
+      <div class='mega-menu'>
+        <div class="container">
+          <div class="item">
+              <h3>Image One</h3>
+              <img src="http://placehold.it/250x200">
+          </div> <!-- /.item -->
+          
+          <div class="item">
+              <h3>Image One</h3>
+              <img src="http://placehold.it/250x200">
+          </div> <!-- /.item -->
+          
+          <div class="item">
+              <h3>Image One</h3>
+              <img src="http://placehold.it/250x200">
+          </div> <!-- /.item -->
+          
+          <div class="item">
+              <h3>Image One</h3>
+              <img src="http://placehold.it/250x200">
+          </div> <!-- /.item -->
+          
+          <div class="item">
+              <h3>Image One</h3>
+              <img src="http://placehold.it/250x200">
+          </div> <!-- /.item -->
+          
+          <div class="item">
+              <h3>Image One</h3>
+              <img src="http://placehold.it/250x200">
+          </div> <!-- /.item -->
+          
+        </div><!-- .container -->
+      </div><!-- .mega-menu-->
+    </li><!-- .dropdown -->
+    <li><a href='#'>About</a></li>
+    <li><a href='#'>Conatct</a></li>
+  </ul><!-- .container -->
+</nav>
