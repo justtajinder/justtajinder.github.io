@@ -25,8 +25,17 @@
         }
 
         .container {
-            margin: auto;
-            width: 1000px;
+           
+            position: fixed;
+            
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black; /* Adjust background color as needed */
+            color: black; /* Adjust text color as needed */
+            
+            text-align: center;
+           
         }
 
         ul {
@@ -116,8 +125,9 @@
             grid start
             */
         * {
-            margin: 0;
-            padding: 0;
+            padding-top:1%;
+            
+           margin:0;
         }
 
         body {
@@ -233,6 +243,7 @@
 
         .img {
             position: absolute;
+            border:solid 2px black;
             top: 0;
             right: 0;
             bottom: 0;
@@ -441,7 +452,6 @@
         </ul><!-- .container -->
     </nav>
 
-    <br /><br />
     <div class="grid">
         <ul id="hexGrid">
             <li class="hex">
@@ -457,7 +467,7 @@
             <li class="hex">
                 <div class="hexIn">
                     <a class="hexLink" href="#">
-                        <div class='img' style='background-image: url(https://images.unsplash.com/44/MIbCzcvxQdahamZSNQ26_12082014-IMG_3526.jpg?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;w=1080&amp;fit=max&amp;s=49dab7a5e4b2e28b5707bc2db974c94b);'></div>
+                        <div class='img' style='background-image: url(https://images.unsplash.com/photo-1696896585506-438529ae3e82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80;q=80&amp;fm=jpg&amp;crop=entropy&amp;w=1080&amp;fit=max&amp;s=49dab7a5e4b2e28b5707bc2db974c94b);'></div>
                         <h1 id="demo1">This is a title</h1>
                         <p id="demo2">Some sample text about the article this hexagon leads to</p>
                     </a>
