@@ -3,165 +3,219 @@
         <head>
 
                 <style>
-                   @use postcss-mixins;
-@use postcss-nested;
-@use postcss-simple-vars;
+                    /* CSS Variables */
+                    :root {
+                        --primary: #ddd;
+                        --dark: #333;
+                        --light: #fff;
+                        --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+                    }
 
-@define-mixin atMedium {
-  @media (min-width: 600px) {
-    @mixin-content;
-  }
-}
-@define-mixin atLarge {
-  @media (min-width: 900px) {
-    @mixin-content;
-  }
-}
+                    html {
+                        box-sizing: border-box;
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: var(--dark);
+                    }
 
-$card-height-large-screen: 20rem;
-$card-height-mobile: 12rem;
+                    body {
+                        background: black;
+                        margin: 30px 50px;
+                        line-height: 1.4;
+                    }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Open Sans";
-}
+                    .btn {
+                        background: var(--dark);
+                        color: var(--light);
+                        padding: 0.6rem 1.3rem;
+                        text-decoration: none;
+                        border: 0;
+                    }
 
-body {
-  background-color: #555;
-}
+                    img {
+                        max-width: 100%;
+                    }
 
-.content-wrapper {
-  margin: 0 auto;
-  max-width: 1200px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  padding: 0.5rem;
-}
+                    .wrapper {
+                        display: grid;
+                        grid-gap: 20px;
+                    }
 
-.news-card {
-  border: 0px solid aqua;
-  margin: 0.5rem;
-  position: relative;
-  height: $card-height-mobile;
-  @mixin atLarge {
-    height: $card-height-large-screen;
-  }
-  overflow: hidden;
-  border-radius: 0.5rem;
-  flex: 1;
-  min-width: 290px;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 80%);;
-      z-index: 0;
-    }
-  
-  &__card-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-/*     background: rgba(255,0,0,.5); */
-  }
+                    /* Navigation */
+                    .main-nav ul {
+                        display: grid;
+                        grid-gap: 20px;
+                        padding: 0;
+                        list-style: none;
+                        grid-template-columns: repeat(4, 1fr);
+                    }
 
-  &__image {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: transform 3s ease;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    position: relative;
-    z-index: -1;
-  }
-  &__text-wrapper {
-    position: absolute;
-    bottom: 0rem;
-    padding: 1rem;
-    color: white;
-/*     background-color: rgba(0, 0, 0, 0.4); */
-    transition: background-color 1.5s ease;
-  }
-  &__title {
-    transition: color 1s ease;
-    margin-bottom: .5rem;
-  }
-  &__post-date {
-    font-size: .7rem;
-    margin-bottom: .5rem;
-    color: #CCC;
-  }
-  &__details-wrapper {
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 1.5s ease, opacity 1s ease;
-  }
-  @mixin atLarge {
-    &:hover &__details-wrapper {
-      max-height: $card-height-large-screen;
-      opacity: 1;
-    }
-    &:hover &__text-wrapper {
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-    &:hover &__title {
-      color: yellow;
-    }
-    &:hover &__image {
-      transform: scale(1.2);
-      z-index: -1;
-    }
-  }
-  &__excerpt {
-    font-weight: 300;
-  }
-  &__read-more {
-    background: black;
-    color: #bbb;
-    display: block;
-    padding: 0.4rem 0.6rem;
-    border-radius: 0.3rem;
-    margin-top: 1rem;
-    border: 1px solid #444;
-    font-size: 0.8rem;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    text-decoration: none;
-    width: 7rem;
-    margin-left: auto;
-    position: relative;
-    z-index: 5;
-    i {
-      position: relative;
-      left: 0.2rem;
-      color: #888;
-      transition: left 0.5s ease, color 0.6s ease;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-    &:hover i {
-      left: 0.5rem;
-      color: yellow;
-    }
-  }
-}
+                    .main-nav a {
+                        background: var(--primary);
+                        display: block;
+                        text-decoration: none;
+                        padding: 0.8rem;
+                        text-align: center;
+                        color: var(--dark);
+                        text-transform: uppercase;
+                        font-size: 1.1rem;
+                        box-shadow: var(--shadow);
+                    }
 
+                        .main-nav a:hover {
+                            background: var(--dark);
+                            color: var(--light);
+                        }
+
+                    /* Top Container */
+                    .top-container {
+                        display: grid;
+                        grid-gap: 20px;
+                        grid-template-areas:
+                            'showcase showcase top-box-a'
+                            'showcase showcase top-box-b';
+                    }
+
+                    /* Showcase */
+                    .showcase {
+                        grid-area: showcase;
+                        min-height: 400px;
+                        background: url(https://images.unsplash.com/photo-1696905618335-d80b84bbd738?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80);
+                        background-size: cover;
+                        background-position: center;
+                        padding: 3rem;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        justify-content: center;
+                        box-shadow: var(--shadow);
+                    }
+
+                        .showcase h1 {
+                            font-size: 4rem;
+                            margin-bottom: 0;
+                            color: var(--light);
+                        }
+
+                        .showcase p {
+                            font-size: 1.3rem;
+                            margin-top: 0;
+                            color: var(--light);
+                        }
+
+                    /* Top Box */
+                    .top-box {
+                    
+                        display: grid;
+                        align-items: center;
+                        justify-items: center;
+                        box-shadow: var(--shadow);
+                        padding: 1.5rem;
+                    }
+
+                        .top-box .price {
+                            font-size: 2.5rem;
+                        }
+
+                    .top-box-a {
+                    
+                        height: 250px;
+                    
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color:white;
+
+                    }
+
+                    .top-box-b {
+                        grid-area: top-box-b;
+                        padding:0px;
+                        margin:0px;
+                    }
+
+                    /* Boxes */
+                    .boxes {
+                        display: grid;
+                        grid-gap: 20px;
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    }
+
+                    .box {
+                        background: var(--primary);
+                        text-align: center;
+                        padding: 1.5rem 2rem;
+                        box-shadow: var(--shadow);
+                    }
+
+                    /* Info */
+                    .info {
+                        background: var(--primary);
+                        box-shadow: var(--shadow);
+                        display: grid;
+                        grid-gap: 30px;
+                        grid-template-columns: repeat(2, 1fr);
+                        padding: 3rem;
+                    }
+
+                    /* Portfolio */
+                    .portfolio {
+                        display: grid;
+                        grid-gap: 20px;
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    }
+
+                        .portfolio img {
+                            width: 100%;
+                            box-shadow: var(--shadow);
+                        }
+
+                    /* Footer */
+                    footer {
+                        margin-top: 2rem;
+                        background: var(--dark);
+                        color: var(--light);
+                        text-align: center;
+                        padding: 1rem;
+                    }
+
+                    /* Media Queries */
+                    @media (max-width: 700px) {
+                        .top-container {
+                            grid-template-areas:
+                                'showcase showcase'
+                                'top-box-a top-box-b';
+                        }
+
+                        .showcase h1 {
+                            font-size: 2.5rem;
+                        }
+
+                        .main-nav ul {
+                            grid-template-columns: 1fr;
+                        }
+
+                        .info {
+                            grid-template-columns: 1fr;
+                        }
+
+                            .info .btn {
+                                display: block;
+                                text-align: center;
+                                margin: auto;
+                            }
+                    }
+
+                    @media (max-width: 500px) {
+                        .top-container {
+                            grid-template-areas:
+                                'showcase'
+                                'top-box-a'
+                                'top-box-b';
+                        }
+                    }
 
 
                 </style>
@@ -172,87 +226,116 @@ body {
 
 
         <body>
-          <div class="content-wrapper">
-  
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing First Title</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est pariatur nemo tempore repellat? Ullam sed officia iure architecto deserunt distinctio, pariatur&hellip;</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
-    </div>
-  </div>
+            <div class="wrapper">
+                <!-- Navigation -->
+                <nav class="main-nav">
+                    <ul>
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Wallpaper</a>
+                        </li>
+                        <li>
+                            <a href="#">Drone</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
 
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/631954/pexels-photo-631954.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing Second Title that is Quite Long</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam obcaecati ex natus nulla rem sequi laborum quod fugit&hellip;</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
-    </div>
-  </div>
+                <!-- Top Container -->
+                <section class="top-container">
+                    <header class="showcase">
+                        <h1>Shot on Sony-Alpha-7-IV</h1>
+                        <p>To plant a garden is to believe in tomorrow.     ©Justtajinder</p>
+                        <a href="#" class="btn">Read More</a>
+                    </header>
+                    <div class="top-box top-box-a">
 
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing Title</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae&hellip;</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
-    </div>
-  </div>
 
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/248486/pexels-photo-248486.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing Forth Title that is Quite Long</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet!</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
-    </div>
-  </div>
+                       
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/h_N0vtZP17Q?si=XBcKUwkPDKSF-tOh?autoplay=1" 
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                                    gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe>
+                      
 
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/206660/pexels-photo-206660.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing Fifth Title</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est pariatur nemo tempore repellat? Ullam sed officia iure architecto deserunt distinctio&hellip;</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
-    </div>
-  </div>
+                   
 
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing 6<sup>th</sup> Title</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est pariatur nemo tempore repellat? Ullam sed officia.</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
-    </div>
-  </div>
+                    </div>
+                    <div class="top-box top-box-b">
+                   
+                            <img src="file:///C:/Users/TAJINDER/Downloads/SHAREit/iPhone10,6/photo/IMG_1987.JPG" height="250" width="100%"  />
+                       
 
-</div>
+
+                    
+                    </div>
+                </section>
+
+                <!-- Boxes Section -->
+                <section class="boxes">
+                    <div class="box">
+                        <i class="fas fa-chart-pie fa-4x"></i>
+                        <h3>APERTURE</h3>
+                        <p>Aperture refers to the opening of the lens through which light passes.  
+                       </p>
+                    </div>
+                    <div class="box">
+                        <i class="fas fa-globe fa-4x"></i>
+                        <h3>ISO</h3>
+                        <p>ISO denotes the sensitivity of the camera sensor to light. </p>
+                    </div>
+                    <div class="box">
+                        <i class="fas fa-cog fa-4x"></i>
+                        <h3>SHUTTER SPEED</h3>
+                        <p>Shutter speed refers to the amount of time the camera's shutter remains open when taking a photograph. I</p>
+                    </div>
+                    <div class="box">
+                        <i class="fas fa-users fa-4x"></i>
+                        <h3>FOCAL LENGTH</h3>
+                        <p>Focal length is the distance between the lens and the camera's image sensor when the subject is in focus. </p>
+                    </div>
+                </section>
+
+                <!-- Info Section -->
+                <section class="info">
+                    <img src="https://images.unsplash.com/photo-1696896585506-438529ae3e82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="MISSING">
+                    <div>
+                        <h2>Your Business On The Web</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo non repellendus?
+                            Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi.
+                        </p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </section>
+
+                <!-- Portfolio -->
+                <section class="portfolio">
+                   
+                    <img src="https://images.unsplash.com/photo-1697331839340-f6c3f4983cd0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="">
+                    <img src="https://images.unsplash.com/photo-1697332394103-b3a3f8b3c034?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" height="210px" alt="">
+                    <img src="file:///C:/Users/TAJINDER/Downloads/SHAREit/iPhone10,6/photo/IMG_1928.png" alt="">
+                    <img src="https://images.unsplash.com/photo-1697332602166-1a0e0a41f0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" height="210px" alt="">
+                    <img src="file:///C:/Users/TAJINDER/Downloads/382665127_1666212077139098_5623261034158288045_n.jpg" alt="">
+                    <img src="https://source.unsplash.com/random/205x200" alt="">
+                    <img src="https://images.unsplash.com/photo-1697332662247-698479b4b48d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" height="210px" alt="">
+                    <img src="https://source.unsplash.com/random/207x200" alt="">
+              
+                </section>
+
+                <!-- Footer -->
+                <footer>
+                    <p>Justtajinder &copy; 2023</p>
+                </footer>
+
+            </div>
+            <!-- Wrapper Ends -->
+
+
         </body>
 
 
