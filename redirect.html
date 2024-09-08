@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivational Quote in Punjabi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.5s ease-in-out;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        footer {
+            font-size: 14px;
+            color: #777;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ਪ੍ਰੇਰਕ ਉਕਤੀਆਂ</h1>
+        <p id="quote"></p>
+    </div>
+    <footer>
+        Created by JustTajinder
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const quotes = [
+                "ਜਿਸੇ ਉਮੀਦ ਹੋਵੇ ਉਸੇ ਦੀ ਲਗਨ ਵੀ ਹੋਵੇਗੀ।",
+                "ਕਠਿਨਾਈਆਂ ਦੀਆਂ ਸ਼ਕਲਾਂ ਸਾਡੇ ਨਜ਼ਰ ਤੋਂ ਟਲਦੀਆਂ ਨਹੀਂ।",
+                "ਜਿੱਥੇ ਇਰਾਦਾ ਹੋਵੇ, ਉੱਥੇ ਰਸਤਾ ਮਿਲਦਾ ਹੈ।",
+                "ਜਿੱਥੇ ਵੀ ਜਾਓ, ਆਪਣੇ ਆਪ ਨੂੰ ਲਾਭਪ੍ਰਦ ਬਣਾਓ।",
+                "ਜੀਤ ਦੀ ਪਹਿਲੀ ਕਦਮ, ਆਪਣੀ ਖੁਦ ਦੀ ਮਿਹਨਤ ਵਿੱਚ ਵਿਸ਼ਵਾਸ ਰੱਖਣਾ ਹੈ।"
+            ];
+
+            const images = [
+                'https://source.unsplash.com/1600x900/?nature,water',
+                'https://source.unsplash.com/1600x900/?mountains,forest',
+                'https://source.unsplash.com/1600x900/?sky,sunset',
+                'https://source.unsplash.com/1600x900/?beach,sun',
+                'https://source.unsplash.com/1600x900/?city,night'
+            ];
+
+            function getRandomQuote() {
+                const randomIndex = Math.floor(Math.random() * quotes.length);
+                return quotes[randomIndex];
+            }
+
+            function getRandomImage() {
+                const randomIndex = Math.floor(Math.random() * images.length);
+                return images[randomIndex];
+            }
+
+            document.getElementById('quote').textContent = getRandomQuote();
+            document.body.style.backgroundImage = `url(${getRandomImage()})`;
+
+            // Redirect after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'https://www.google.com';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
